@@ -1,7 +1,7 @@
 {
   "domain": "shf_bridge",
   "name": "Smart Home Floorplan",
-  "version": "0.0.2-t8bpxc",
+  "version": "0.0.3",
   "documentation": "https://github.com/loelabs-net/shf-ha-frontend",
   "codeowners": [
     "@loelabs"
