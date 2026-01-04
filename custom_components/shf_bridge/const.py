@@ -13,4 +13,4 @@ ADDON_NAME_DEV = "Smart Home Floorplan (dev)"
 ADDON_NAME_LOCAL = "Smart Home Floorplan (local)"
 
 # Addon port (exposed as direct port in addon config)
-ADDON_PORT = 18000
+ADDON_PORT = 8099

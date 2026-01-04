@@ -1,3 +1,7 @@
+# Copyright (C) 2023 Øivind Loe - All Rights Reserved
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# ~
 """Proxy view for forwarding requests to the Smart Home Floorplan addon."""
 from __future__ import annotations
 
@@ -8,24 +12,23 @@ from typing import Any
 from homeassistant.components.http import HomeAssistantView  # pylint: disable=import-error
 from homeassistant.helpers import aiohttp_client  # pylint: disable=import-error
 
-_LOGGER = logging.getLogger(__name__)
+from .addon import get_addon_base_url
+from .const import DOMAIN
 
-# Where HA should forward requests
-UPSTREAM_BASE = "http://172.30.33.6:8099"
+_LOGGER = logging.getLogger(__name__)
 
 
 async def _proxy_request(request: Any, path: str) -> web.Response:
     """Shared proxy implementation for forwarding requests to upstream addon."""
-    _LOGGER.info("PROXY REQUEST: %s", request)
-    
-    user = getattr(request, "user", None)
-    _LOGGER.info("Proxy auth user=%s is_admin=%s", getattr(user, "name", None), getattr(user, "is_admin", None))
+    _LOGGER.debug("PROXY REQUEST: %s", request)
 
     hass = request.app["hass"]
     # Get the aiohttp client session from Home Assistant helpers
     session = aiohttp_client.async_get_clientsession(hass)
 
-    upstream_url = f"{UPSTREAM_BASE}/{path}"
+    # Get the addon base URL dynamically (cached for 15 seconds)
+    upstream_base = await get_addon_base_url(hass)
+    upstream_url = f"{upstream_base}/{path}"
 
     # Forward body if present
     body = await request.read() if request.can_read_body else None
@@ -92,8 +95,8 @@ async def _proxy_request(request: Any, path: str) -> web.Response:
 class ShfBridgeProxy(HomeAssistantView):  # type: ignore[misc]
     """Proxy view for forwarding API requests to the addon."""
 
-    url = "/api/shf_bridge/proxy/{path:.*}"
-    name = "api:shf_bridge:proxy"
+    url = "/api/" + DOMAIN + "/proxy/{path:.*}"
+    name = "api:" + DOMAIN + ":proxy"
     requires_auth = True  # any logged-in HA user
     csrf_exempt = True
 
@@ -121,8 +124,8 @@ class ShfBridgeProxy(HomeAssistantView):  # type: ignore[misc]
 class ShfBridgeStaticProxy(HomeAssistantView):  # type: ignore[misc]
     """Proxy view for forwarding static asset requests to the addon."""
 
-    url = "/local/shf_bridge/proxy/{path:.*}"
-    name = "local:shf_bridge:proxy"
+    url = "/local/" + DOMAIN + "/proxy/{path:.*}"
+    name = "local:" + DOMAIN + ":proxy"
     requires_auth = False  # static assets don't require auth
     csrf_exempt = True
 

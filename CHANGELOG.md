@@ -9,6 +9,9 @@ Important: This change-log is focused on the widgets themselves, and not the ove
 
 ## [0.0.3]
 
+### Added
+- By adding the Smart Home Floorplan Bridge integration, cards can now be used by non-admins in Home Assistant
+
 ### Fixed
 - Default floor selection is now saved.
 - Disabled keyboard events in card
