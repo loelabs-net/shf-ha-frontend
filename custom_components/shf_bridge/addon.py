@@ -140,7 +140,7 @@ async def get_addon_ip(hass: HomeAssistant) -> str:
     if ip_address and isinstance(ip_address, str):
         _LOGGER.debug("Found addon IP from ip_address: %s", ip_address)
         _cache[cache_key] = (ip_address, now)
-        return ip_address
+        return cast(str, ip_address)
 
     raise RuntimeError(f"Could not determine IP address for addon '{addon_name}' (slug: {addon_slug}).")
     
@@ -158,4 +158,3 @@ async def get_addon_base_url(hass: HomeAssistant) -> str:
     """
     ip = await get_addon_ip(hass)
     return f"http://{ip}:{ADDON_PORT}"
-
