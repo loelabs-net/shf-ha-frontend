@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Øivind Loe - All Rights Reserved
+# Copyright (C) 2026 LoeLabs LLC - All Rights Reserved
 # Unauthorized copying of this file, via any medium is strictly prohibited
 # Proprietary and confidential
 # ~
