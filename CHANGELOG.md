@@ -5,6 +5,10 @@ All notable changes to the Smart Home Floorplan frontend widgets will be documen
 Important: This change-log is focused on the widgets themselves, and not the overall Smart Home Floorplan product.
 
 
+## [0.0.4]
+
+### Fixed
+- Cards show up again when switching between tabs in a dashboard
 
 
 ## [0.0.3]
