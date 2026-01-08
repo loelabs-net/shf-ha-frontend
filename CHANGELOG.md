@@ -9,6 +9,8 @@ Important: This change-log is focused on the widgets themselves, and not the ove
 
 ### Fixed
 - Cards show up again when switching between tabs in a dashboard
+- Cards now work in Masonry and Sidebar layouts in Home Assistant
+- Now possible to remove the title from the card by clearing the title field in the card configuration
 
 
 ## [0.0.3]
