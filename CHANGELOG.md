@@ -5,6 +5,13 @@ All notable changes to the Smart Home Floorplan frontend widgets will be documen
 Important: This change-log is focused on the widgets themselves, and not the overall Smart Home Floorplan product.
 
 
+
+## [Next]
+
+### Fixed
+- Issue when setting empty title for card
+
+
 ## [0.0.4]
 
 ### Fixed
