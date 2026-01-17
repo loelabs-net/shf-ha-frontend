@@ -6,7 +6,7 @@ Important: This change-log is focused on the widgets themselves, and not the ove
 
 
 
-## [Next]
+## [0.0.5]
 
 ### Fixed
 - Issue when setting empty title for card
