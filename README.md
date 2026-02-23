@@ -19,6 +19,12 @@ It's still early, but it works as both a HA panel and a Lovelace card via an add
 
 [Website](https://getsmarthomefloorplan.com) · [Documentation](https://getsmarthomefloorplan.com/docs) · [Demo](https://getsmarthomefloorplan.com/demos) · [Discord](https://discord.gg/ScKGVyaCb7)
 
+### Preview
+
+| Lights | Sensors |
+|-------------------|------------------------|
+| ![Floor plan with lights](images/fp-2-bedroom-lights.png) | ![Floor plan with sensors](images/fp-2-bedroom-sensors.png) |
+
 ---
 
 ## What's in This Repo
