@@ -5,6 +5,11 @@ All notable changes to the Smart Home Floorplan frontend widgets will be documen
 Important: This change-log is focused on the widgets themselves, and not the overall Smart Home Floorplan product.
 
 
+## [0.0.6]
+
+### Changed
+- Release with clean hacs checks
+
 
 ## [0.0.5]
 
